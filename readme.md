@@ -13,6 +13,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Download Dataset at the following link:
+```
+https://www.kaggle.com/datasets/darthpenguin/merged-asl-alphabets/data
+```
+
+
+Place the dataset folder into this project folder and rename the folder to 
+https://www.kaggle.com/datasets/darthpenguin/merged-asl-alphabets/data
+
 
 ### Files
 
