@@ -296,7 +296,6 @@ def calculate_accuracy(actuals, predicteds):
     return count / len(actuals)
 
 def predict_images(model_path,test_path, missclassified_path):
-    # setattr(__main__, "PointNet", PointNet)
     model = torch.load(os.path.join(model_path), map_location=torch.device("cpu"))
     # model = torch.load(os.path.join(model_path, model_name))
 
@@ -310,12 +309,12 @@ def predict_images(model_path,test_path, missclassified_path):
     wrongs = {}
     undetectable = {}
     errored = []
+    count = 0
     for root, dirs, files in os.walk(test_path):
         gt = root.split(os.sep)[-1].lower()
         if len(gt) == 0:
             continue
         print(f'Current sign:{gt}')
-        count = 0
         for file in files:
             if gt in signs:
                 ss.add(gt)
