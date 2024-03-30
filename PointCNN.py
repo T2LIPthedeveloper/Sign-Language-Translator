@@ -2,7 +2,6 @@ import torch
 from torch import nn
 
 class XConv(nn.Module):
-    """Simplified placeholder for the X-Conv operation."""
     def __init__(self, in_channels, out_channels):
         super(XConv, self).__init__()
         # This should include the operations for dynamically weighting and ordering points.
@@ -19,7 +18,7 @@ class PointCNN(nn.Module):
     def __init__(self, num_classes):
         super(PointCNN, self).__init__()
         
-        self.xconv1 = XConv(3, 64)  # Example X-Conv layer
+        self.xconv1 = XConv(3, 64) 
         self.xconv2 = XConv(64, 128)
         self.xconv3 = XConv(128, 256)
         
