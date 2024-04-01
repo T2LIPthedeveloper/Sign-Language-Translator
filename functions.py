@@ -123,6 +123,19 @@ def create_dataset(src_path, destination_path, transform):
 
     print(f'Created {count}')
     
+def plot_two_lines_same_x(y1, y2, xlabel, ylabel, title):
+    if len(y1) != len(y2):
+        raise ValueError("The lists must have the same length.")
+
+    x = list(range(len(y1))) 
+
+    plt.plot(x, y1, label='train')
+    plt.plot(x, y2, label='val')
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.title(title)
+    plt.legend()
+    plt.show()
 
 
 
@@ -252,7 +265,7 @@ def train_model(model,epochs,train_dataloader, val_dataloader,folder_name,learn_
         loss_val_all.append(np.mean(loss_ep))
         acc_val_all.append(np.mean(acc_ep))
         val_loss = np.mean(loss_ep)
-        print(f'Loss train {loss_train_all[-1]} Loss val {loss_val_all[-1]} Acc train {acc_train_all[-1]} Acc val {acc_val_all[-1]}')
+        print(f'Acc train: {acc_train_all[-1]}, Loss train: {loss_train_all[-1]}, Acc val: {acc_val_all[-1]}, Loss val: {loss_val_all[-1]},')
         
         count += 1
         # if count % 15 == 0:
@@ -297,7 +310,6 @@ def calculate_accuracy(actuals, predicteds):
 
 def predict_images(model_path,test_path, missclassified_path):
     model = torch.load(os.path.join(model_path), map_location=torch.device("cpu"))
-    # model = torch.load(os.path.join(model_path, model_name))
 
     os.makedirs(missclassified_path, exist_ok=True)
     shutil.rmtree(missclassified_path)
