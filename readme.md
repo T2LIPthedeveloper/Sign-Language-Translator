@@ -30,9 +30,13 @@ pip install -r requirements.txt
 ```
 
 ### Run training.ipynb Jupyter Notebook
-Run the cells in the notebook sequentially. Update in the second cell the dataset1 variable with "./{dataset folder name}/Train_Alphabet". The commented out sections in the first few cells are used if you would like to train the model on more datasets and for pre-processing. In the third last cell, update the test_path variable to be "./{dataset folder name}/Test_Alphabet"
+1. Run the cells in the notebook sequentially. Update in the second cell the dataset1 variable with "./{dataset folder name}/Train_Alphabet". 
 
-Running the entire notebook will end with the test accuracies for both PointNet Models where we can see both accuracy values and any misclassified images will be saved into the misclassified folder. You may rename the destination folders defined in the predict_images() function for the misclassified files.
+2. Uncomment the create_dataset function in line 12 of the second cell.
+
+3. The commented out sections in the first few cells are used if you would like to train the model on more datasets and for pre-processing. In the third last cell, update the test_path variable to be "./{dataset folder name}/Test_Alphabet"
+
+4. Running the entire notebook will end with the test accuracies for both PointNet Models where we can see both accuracy values and any misclassified images will be saved into the misclassified folder. You may rename the destination folders defined in the predict_images() function for the misclassified files.
 
 
 ## Application
